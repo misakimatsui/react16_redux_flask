@@ -41,6 +41,7 @@ const common = {
             },
         ]
     },
+    devtool: 'source-map',
 
 }
 
