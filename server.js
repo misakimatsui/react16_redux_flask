@@ -21,7 +21,9 @@ app.use(require('morgan')('short'));
          publicPath: webpackConfig.output.publicPath,
     }));
 
-    app.use(require('webpack-hot-middleware')(compiler));
+    app.use(require('webpack-hot-middleware')(compiler, {
+        log : console.log, path: '/__webpack_hmr', heartbeat: 10 * 1000,
+    }));
 
     app.use(express.static(path.join(__dirname, '/')));
 
