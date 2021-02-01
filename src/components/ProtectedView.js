@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../actions/data';
 import PropTypes from 'prop-types';
+import SimpleTabs from "./Tab";
+import DataTable from './DataTable';
+import createRowData from './CreateRow';
 
 
 function mapStateToProps(state) {
@@ -33,7 +36,8 @@ export default class ProtectedView extends React.Component {
     render() {
         return (
             <div>
-                ProtectedView
+                <DataTable rows={createRowData(50)}/>
+                <SimpleTabs/>
             </div>
         );
     }

@@ -129,29 +129,27 @@ export default class LoginView extends React.Component {
 
                             <div className="col-md-12">
                                 <TextField
-                                  hintText="Email"
-                                  floatingLabelText="Email"
+                                  label="Email"
                                   type="email"
-                                  errorText={this.state.email_error_text}
+                                  helperText={this.state.email_error_text}
                                   onChange={(e) => this.changeValue(e, 'email')}
                                 />
                             </div>
                             <div className="col-md-12">
                                 <TextField
-                                  hintText="Password"
-                                  floatingLabelText="Password"
+                                  label="Password"
                                   type="password"
-                                  errorText={this.state.password_error_text}
+                                  helperText={this.state.password_error_text}
                                   onChange={(e) => this.changeValue(e, 'password')}
                                 />
                             </div>
 
                             <Button
-                              disabled={this.state.disabled}
-                              style={{ marginTop: 50 }}
-                              label="Submit"
-                              onClick={(e) => this.login(e)}
-                            />
+                                variant="contained"
+                                disabled={this.state.disabled}
+                                style={{ marginTop: 50 }}
+                                onClick={(e) => this.login(e)}
+                            >Submit</Button>
 
                         </div>
                     </form>

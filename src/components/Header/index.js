@@ -113,14 +113,14 @@ export class Header extends Component {
                             </div>
                     }
                 </LeftNav>
-                <AppBar>
+                <AppBar position="static">
                     <Toolbar>
                         <IconButton
                             onClick={() => this.openNav()}
                         >
                             <MenuIcon/>
                         </IconButton>
-                        <Typography variant="h6" clasasName={{ flexGrow: 1 }}>
+                        <Typography variant="h6">
                             Title
                         </Typography>
                     </Toolbar>

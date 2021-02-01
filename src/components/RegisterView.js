@@ -147,6 +147,7 @@ export default class RegisterView extends React.Component {
                         </div>
 
                         <Button
+                          variant='contained'
                           disabled={this.state.disabled}
                           style={{ marginTop: 50 }}
                           label="Submit"
