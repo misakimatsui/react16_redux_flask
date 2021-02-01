@@ -3,7 +3,6 @@ import { browserHistory } from 'react-router-v3';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {AppBar} from '@material-ui/core';
-import { makeStyles } from "@material-ui/core/styles";
 import { Toolbar } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 import { IconButton } from "@material-ui/core";
@@ -13,19 +12,11 @@ import Divider from '@material-ui/core/Divider';
 
 import  MenuIcon from "@material-ui/icons/Menu";
 import  CloseIcon from "@material-ui/icons/Close";
+import UploadDialog from "../UploadDialog";
 
 import PropTypes from 'prop-types';
 
 import * as actionCreators from '../../actions/auth';
-
-const useStyles = makeStyles({
-    list: {
-        width: 250,
-    },
-    fullList: {
-        width: 'auto',
-    },
-});
 
 function mapStateToProps(state) {
     return {
@@ -39,7 +30,6 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(actionCreators, dispatch);
 }
 
-
 @connect(mapStateToProps, mapDispatchToProps)
 export class Header extends Component {
     constructor(props) {
@@ -48,7 +38,6 @@ export class Header extends Component {
             open: false,
         };
     }
-
 
     dispatchNewRoute(route) {
         browserHistory.push(route);
@@ -86,7 +75,7 @@ export class Header extends Component {
                 <LeftNav open={this.state.open}>
                     {
                         !this.props.isAuthenticated ?
-                            <div>
+                            <div style={{width : 240}}>
                                 <MenuItem onClick={() => this.handleClickOutside()}>
                                     <CloseIcon/>
                                 </MenuItem>
@@ -99,17 +88,19 @@ export class Header extends Component {
                                 </MenuItem>
                             </div>
                             :
-                            <div>
+                            <div style={{width : 240}}>
                                 <MenuItem onClick={() => this.handleClickOutside()}>
                                     <CloseIcon/>
                                 </MenuItem>
                                 <MenuItem onClick={() => this.dispatchNewRoute('/')}>
-                                    Analytics
+                                    <div style={{fontSize:20}}>Analytics</div>
                                 </MenuItem>
                                 <Divider/>
                                 <MenuItem onClick={() => this.dispatchNewRoute('/')}>
-                                    Logout
+                                    <div style={{fontSize:20}}>Logout</div>
                                 </MenuItem>
+                                <Divider/>
+                                <UploadDialog/>
                             </div>
                     }
                 </LeftNav>

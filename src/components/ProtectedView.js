@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import SimpleTabs from "./Tab";
 import DataTable from './DataTable';
 import createRowData from './CreateRow';
+import SimpleFileUpload  from "./SimpleFileUpload";
 
 
 function mapStateToProps(state) {
@@ -38,6 +39,7 @@ export default class ProtectedView extends React.Component {
             <div>
                 <DataTable rows={createRowData(50)}/>
                 <SimpleTabs/>
+                <SimpleFileUpload/>
             </div>
         );
     }
